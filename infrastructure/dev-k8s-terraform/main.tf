@@ -79,7 +79,7 @@ resource "aws_iam_role_policy_attachment" "petclinic_s3_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
 }
 
-resource "aws_iam_instance_profile" "petclinic-master-server-profile123" {
+resource "aws_iam_instance_profile" "petclinic-master-server-profile" {
   name = "petclinic-master-server-profile"
   role = aws_iam_role.petclinic-master-server-s3-role.name
 }
