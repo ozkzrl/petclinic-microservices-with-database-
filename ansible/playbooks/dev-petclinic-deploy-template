@@ -1,4 +1,5 @@
 - hosts: role_master
+  become: yes
   tasks:
 
   - name: Create .docker folder
@@ -7,22 +8,55 @@
       state: directory
       mode: '0755'
 
-  - name: copy the docker config file
-    become: yes
-    copy: 
+  - name: Copy the docker config file
+    copy:
       src: $JENKINS_HOME/.docker/config.json
       dest: /home/ubuntu/.docker/config.json
+      owner: ubuntu
+      group: ubuntu
+      mode: '0600'
 
-  - name: deploy petclinic application
+  - name: Ensure AWS credentials folder exists
+    file:
+      path: /home/ubuntu/.aws
+      state: directory
+      owner: ubuntu
+      group: ubuntu
+      mode: '0700'
+
+  - name: Create AWS credentials for ubuntu user
+    copy:
+      dest: /home/ubuntu/.aws/credentials
+      content: |
+        [default]
+        aws_access_key_id = {{ lookup('env','AWS_ACCESS_KEY_ID') }}
+        aws_secret_access_key = {{ lookup('env','AWS_SECRET_ACCESS_KEY') }}
+      owner: ubuntu
+      group: ubuntu
+      mode: '0600'
+
+  - name: Deploy Petclinic application
+    become_user: ubuntu
     shell: |
-      helm plugin install https://github.com/hypnoglow/helm-s3.git
-      kubectl create ns petclinic-dev
+      set -e
+      export AWS_REGION={{ AWS_REGION }}
+      export AWS_ACCESS_KEY_ID={{ lookup('env','AWS_ACCESS_KEY_ID') }}
+      export AWS_SECRET_ACCESS_KEY={{ lookup('env','AWS_SECRET_ACCESS_KEY') }}
+
+      # Helm S3 plugin kurulumu
+      helm plugin install https://github.com/hypnoglow/helm-s3.git || true
+
+      # Namespace ve secret işlemleri
+      kubectl create ns petclinic-dev || true
       kubectl delete secret regcred -n petclinic-dev || true
       kubectl create secret generic regcred -n petclinic-dev \
         --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
         --type=kubernetes.io/dockerconfigjson
-      AWS_REGION=$AWS_REGION helm repo add stable-petclinic s3://petclinic-helm-charts-ozkzrlgit/stable/myapp/
-      AWS_REGION=$AWS_REGION helm repo update
-      AWS_REGION=$AWS_REGION helm upgrade --install \
-        petclinic-app-release stable-petclinic/petclinic_chart --version ${BUILD_NUMBER} \
+
+      # Helm repo ve deploy
+      helm repo add stable-petclinic s3://petclinic-helm-charts-ozkzrlgit/stable/myapp/
+      helm repo update
+      helm upgrade --install \
+        petclinic-app-release stable-petclinic/petclinic_chart \
+        --version {{ BUILD_NUMBER }} \
         --namespace petclinic-dev
