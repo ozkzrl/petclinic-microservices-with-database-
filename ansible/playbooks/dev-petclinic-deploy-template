@@ -10,7 +10,7 @@
 
   - name: Copy the docker config file
     copy:
-      src: $JENKINS_HOME/.docker/config.json
+      src: "{{ lookup('env','JENKINS_HOME') }}/.docker/config.json"
       dest: /home/ubuntu/.docker/config.json
       owner: ubuntu
       group: ubuntu
