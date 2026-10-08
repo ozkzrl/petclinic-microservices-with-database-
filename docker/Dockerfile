@@ -1,4 +1,4 @@
-FROM openjdk:11-jre
+FROM eclipse-temurin:11-jre
 VOLUME /tmp
 ARG DOCKERIZE_VERSION
 ARG ARTIFACT_NAME
