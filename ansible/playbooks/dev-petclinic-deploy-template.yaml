@@ -54,7 +54,7 @@
         --type=kubernetes.io/dockerconfigjson
 
       # Helm repo ve deploy
-      helm repo add stable-petclinic s3://petclinic-helm-charts-ozkzrlgit/stable/myapp/
+      helm repo add stable-petclinic s3://petclinic-helm-charts-12tr/stable/myapp/
       helm repo update
       helm upgrade --install \
         petclinic-app-release stable-petclinic/petclinic_chart \
