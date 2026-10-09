@@ -3143,4 +3143,35 @@ Counting objects:  14% (1/7)Counting objects:  28% (2/7)Counting objects:  42%
 Delta compression using up to 2 threads
 Compressing objects:  25% (1/4)Compressing objects:  50% (2/4)Compressing objects:  75% (3/4)Compressing objects: 100% (4/4)Compressing objects: 100% (4/4), done.
 Writing objects:  25% (1/4)Writing objects:  50% (2/4)Writing objects:  75% (3/4)Writing objects: 100% (4/4)Writing objects: 100% (4/4), 1.38 KiB | 156.00 KiB/s, done.
-Total 4 (delt
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas:   0% (0/3)[Kremote: Resolving deltas:  33% (1/3)[Kremote: Resolving deltas:  66% (2/3)[Kremote: Resolving deltas: 100% (3/3)[Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
+To https://github.com/ozkzrl/petclinic-microservices-with-database-.git
+   969ed0b..bcdfd55  dev -> dev
+M	returned
+Already on 'dev'
+Your branch is up to date with 'origin/dev'.
+Already up to date.
+Everything up-to-date
+]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ [7mgit add Jenkinsfile[27mgit add Jenkinsfile
+[?2004lfatal: pathspec 'Jenkinsfile' did not match any files
+]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ git add Jenkinsfile[K[K[K[K[K[K[K[K[K[K[K.
+[?2004l]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ [7mgit commit -m "fix: add .yaml extension to dev-petclinic-deploy-template in pipeline"[27m
+[7mgit push origin dev[27m[A[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ git commit -m "fix: add .yaml extension to dev-petclinic-deploy-template in pipeline"
+git push origin dev
+[?2004l[dev 70dbe14] fix: add .yaml extension to dev-petclinic-deploy-template in pipeline
+ 3 files changed, 70 insertions(+), 3 deletions(-)
+Enumerating objects: 11, done.
+Counting objects:   9% (1/11)Counting objects:  18% (2/11)Counting objects:  27% (3/11)Counting objects:  36% (4/11)Counting objects:  45% (5/11)Counting objects:  54% (6/11)Counting objects:  63% (7/11)Counting objects:  72% (8/11)Counting objects:  81% (9/11)Counting objects:  90% (10/11)Counting objects: 100% (11/11)Counting objects: 100% (11/11), done.
+Delta compression using up to 2 threads
+Compressing objects:  16% (1/6)Compressing objects:  33% (2/6)Compressing objects:  50% (3/6)Compressing objects:  66% (4/6)Compressing objects:  83% (5/6)Compressing objects: 100% (6/6)Compressing objects: 100% (6/6), done.
+Writing objects:  16% (1/6)Writing objects:  33% (2/6)Writing objects:  50% (3/6)Writing objects:  66% (4/6)Writing objects:  83% (5/6)Writing objects: 100% (6/6)Writing objects: 100% (6/6), 1.51 KiB | 1.51 MiB/s, done.
+Total 6 (delta 5), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas:   0% (0/5)[Kremote: Resolving deltas:  20% (1/5)[Kremote: Resolving deltas:  40% (2/5)[Kremote: Resolving deltas:  60% (3/5)[Kremote: Resolving deltas:  80% (4/5)[Kremote: Resolving deltas: 100% (5/5)[Kremote: Resolving deltas: 100% (5/5), completed with 5 local objects.[K
+To https://github.com/ozkzrl/petclinic-microservices-with-database-.git
+   bcdfd55..70dbe14  dev -> dev
+]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ git push origin dev[Kgit push origin devcommit -m "fix: add .yaml extension to dev-petclinic-deploy-template in pipeline"[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpush origin dev[K[K[7mgit add .[27m
+[7mgit commit -m 'added qa automation pipeline for dev'[27m
+[7mgit push[27m
+[7mgit checkout dev[27m
+[7mgit merge feature/msp-18[27m
+[7mgit push origin dev[27m[A[A[A[A[A[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ gi
