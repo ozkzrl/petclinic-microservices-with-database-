@@ -3115,4 +3115,32 @@ Everything up-to-date
 [?2004l[?2004h> ^C[?2004l[?2004h[?2004l
 ]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ ```
 [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit push origin dev
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmerge feature/msp-18[8Pcheckout dev[8Ppushcommit -m 'added qa automation pipeline for dev'add .[Kenvsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml[K[K[K[K[K[K[K[K[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmerge feature/msp-18[8Pcheckout dev[8Ppushcommit -m 'added qa automation pipeline for dev'add .[Kenvsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[7msh "envsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml"[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csh "envsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml"
+[?2004lsh: envsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml: No such file or directory
+]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ [7mcd ~/petclinic-microservices-with-database-[27mcd ~/petclinic-microservices-with-database-
+[?2004l]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ [7mls -l ansible/playbooks/dev-petclinic-deploy-template.yaml[27m
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls -l ansible/playbooks/dev-petclinic-deploy-template.yaml
+[A
+[?2004l-rw-r--r--. 1 ec2-user docker 1915 Oct  9 13:30 ansible/playbooks/dev-petclinic-deploy-template.yaml
+]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ [7menvsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml[27m
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cenvsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml
+[A
+[?2004l]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ [7mgit add .[27m
+[7mgit commit -m 'added qa automation pipeline for dev'[27m
+[7mgit push[27m
+[7mgit checkout dev[27m
+[7mgit merge feature/msp-18[27m
+[7mgit push origin dev[27m[A[A[A[A[A[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ git add .
+git commit -m 'added qa automation pipeline for dev'
+git push
+git checkout dev
+git merge feature/msp-18
+git push origin dev
+[?2004l[dev bcdfd55] added qa automation pipeline for dev
+ 2 files changed, 66 insertions(+), 2 deletions(-)
+Enumerating objects: 7, done.
+Counting objects:  14% (1/7)Counting objects:  28% (2/7)Counting objects:  42% (3/7)Counting objects:  57% (4/7)Counting objects:  71% (5/7)Counting objects:  85% (6/7)Counting objects: 100% (7/7)Counting objects: 100% (7/7), done.
+Delta compression using up to 2 threads
+Compressing objects:  25% (1/4)Compressing objects:  50% (2/4)Compressing objects:  75% (3/4)Compressing objects: 100% (4/4)Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)Writing objects:  50% (2/4)Writing objects:  75% (3/4)Writing objects: 100% (4/4)Writing objects: 100% (4/4), 1.38 KiB | 156.00 KiB/s, done.
+Total 4 (delt
