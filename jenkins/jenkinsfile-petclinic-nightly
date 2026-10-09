@@ -116,7 +116,14 @@ pipeline {
                 sh "helm s3 push --force petclinic_chart-${BUILD_NUMBER}.tgz stable-petclinic"
                 // .yaml uzantısı eklendi (Hata çözüldü)
                 sh "envsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml"
-                sh "sleep 180"    
+                // regcred icin ECR kimlik bilgisini credsStore'dan bagimsiz olarak dosyaya yaz
+                sh '''
+                set +x
+                TOKEN=$(aws ecr get-login-password --region ${AWS_REGION})
+                AUTH=$(printf "AWS:%s" "$TOKEN" | base64 -w0)
+                printf '{"auths":{"%s":{"auth":"%s"}}}' "${ECR_REGISTRY}" "$AUTH" > ${WORKSPACE}/ecr-config.json
+                chmod 600 ${WORKSPACE}/ecr-config.json
+                '''
                 sh """
                 ansible-playbook \
                   -i ./ansible/inventory/dev_stack_dynamic_inventory_aws_ec2.yaml \
@@ -130,18 +137,20 @@ pipeline {
             steps {
                 echo "Check if the ${APP_NAME} app is ready or not"
                 script {
-                    env.MASTER_PUBLIC_IP = sh(script:"aws ec2 describe-instances --region ${AWS_REGION} --filters Name=tag-value,Values=master Name=tag-value,Values=tera-kube-ans Name=instance-state-name,Values=running --query Reservations[*].Instances[*].[PublicIpAddress] --output text", returnStdout:true).trim()
-                    while(true) {
-                        try{
-                            sh "curl -s ${MASTER_PUBLIC_IP}:30001"
-                            echo "${APP_NAME} app is successfully deployed."
-                            break
+                    env.MASTER_PUBLIC_IP = sh(script:"aws ec2 describe-instances --region ${AWS_REGION} --filters Name=tag:Role,Values=master Name=tag:Project,Values=tera-kube-ans Name=instance-state-name,Values=running --query 'Reservations[0].Instances[0].PublicIpAddress' --output text", returnStdout:true).trim()
+                    echo "Master public IP: ${MASTER_PUBLIC_IP}"
+                    try {
+                        timeout(time: 20, unit: 'MINUTES') {
+                            waitUntil(initialRecurrencePeriod: 15000) {
+                                sh(script: "curl -sf -o /dev/null http://${MASTER_PUBLIC_IP}:30001", returnStatus: true) == 0
+                            }
                         }
-                        catch(Exception){
-                            echo "Could not connect to ${APP_NAME} app"
-                            sleep(5)
-                        }
+                    } catch (err) {
+                        echo "Could not connect to ${APP_NAME} app, pod status:"
+                        sh "ansible -i ./ansible/inventory/dev_stack_dynamic_inventory_aws_ec2.yaml role_master -m shell -a 'kubectl get pods -n petclinic-dev -o wide; kubectl get events -n petclinic-dev --sort-by=.lastTimestamp | tail -40' || true"
+                        throw err
                     }
+                    echo "${APP_NAME} app is successfully deployed."
                 }
             }
         }
@@ -172,7 +181,7 @@ pipeline {
             """
             echo "Delete existing key pair using AWS CLI"
             sh "aws ec2 delete-key-pair --region ${AWS_REGION} --key-name ${ANS_KEYPAIR}"
-            sh "rm -rf ${ANS_KEYPAIR}"
+            sh "rm -rf ${ANS_KEYPAIR} ${WORKSPACE}/ecr-config.json"
         }
     }
 }
