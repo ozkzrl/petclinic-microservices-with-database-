@@ -3080,4 +3080,39 @@ Your branch is up to date with 'origin/dev'.
 Already up to date.
 Everything up-to-date
 ]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ [K[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ [7msh "envsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml"[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csh "envsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml"
-[?2004lsh: envsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml: No such file or dir
+[?2004lsh: envsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml: No such file or directory
+]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ [7menvsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cenvsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml
+[?2004l]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ [7mgit add .[27m
+[7mgit commit -m 'added qa automation pipeline for dev'[27m
+[7mgit push[27m
+[7mgit checkout dev[27m
+[7mgit merge feature/msp-18[27m
+[7mgit push origin dev[27m
+[7m```[27m[A[A[A[A[A[A[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ git add .
+git commit -m 'added qa automation pipeline for dev'
+git push
+git checkout dev
+git merge feature/msp-18
+git push origin dev
+```
+[?2004l[dev 969ed0b] added qa automation pipeline for dev
+ 3 files changed, 183 insertions(+), 2 deletions(-)
+ create mode 100644 ansible/playbooks/dev-petclinic-deploy.yaml
+Enumerating objects: 11, done.
+Counting objects:   9% (1/11)Counting objects:  18% (2/11)Counting objects:  27% (3/11)Counting objects:  36% (4/11)Counting objects:  45% (5/11)Counting objects:  54% (6/11)Counting objects:  63% (7/11)Counting objects:  72% (8/11)Counting objects:  81% (9/11)Counting objects:  90% (10/11)Counting objects: 100% (11/11)Counting objects: 100% (11/11), done.
+Delta compression using up to 2 threads
+Compressing objects:  16% (1/6)Compressing objects:  33% (2/6)Compressing objects:  50% (3/6)Compressing objects:  66% (4/6)Compressing objects:  83% (5/6)Compressing objects: 100% (6/6)Compressing objects: 100% (6/6), done.
+Writing objects:  16% (1/6)Writing objects:  33% (2/6)Writing objects:  50% (3/6)Writing objects:  66% (4/6)Writing objects:  83% (5/6)Writing objects: 100% (6/6)Writing objects: 100% (6/6), 1.96 KiB | 111.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas:   0% (0/4)[Kremote: Resolving deltas:  25% (1/4)[Kremote: Resolving deltas:  50% (2/4)[Kremote: Resolving deltas:  75% (3/4)[Kremote: Resolving deltas: 100% (4/4)[Kremote: Resolving deltas: 100% (4/4), completed with 4 local objects.[K
+To https://github.com/ozkzrl/petclinic-microservices-with-database-.git
+   d39c1bb..969ed0b  dev -> dev
+Already on 'dev'
+Your branch is up to date with 'origin/dev'.
+Already up to date.
+Everything up-to-date
+[?2004h> 
+[?2004l[?2004h> ^C[?2004l[?2004h[?2004l
+]0;ec2-user@ip-172-31-46-152:~/petclinic-microservices-with-database-[?2004h[01;32mec2-user@ip-172-31-46-152[00m:[01;34m~/petclinic-microservices-with-database-[33m (dev)[00m$ ```
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit push origin dev
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmerge feature/msp-18[8Pcheckout dev[8Ppushcommit -m 'added qa automation pipeline for dev'add .[Kenvsubst < ansible/playbooks/dev-petclinic-deploy-template.yaml > ansible/playbooks/dev-petclinic-deploy.yaml[K[K[K[K[K[K[K[K[K
