@@ -1,3 +1,8 @@
+variable "sec-gr-k8s" {
+  type    = string
+  default = "petclinic-k8s-sec-group"
+}
+
 data "aws_vpc" "name" {
   default = true
 }
