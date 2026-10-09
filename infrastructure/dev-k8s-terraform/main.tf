@@ -61,7 +61,7 @@ resource "aws_instance" "kube-master" {
   instance_type        = "t3a.medium"
   iam_instance_profile = data.aws_iam_instance_profile.petclinic-master-server-profile.name
   vpc_security_group_ids = [aws_security_group.k8s-sec-gr.id]
-  key_name             = "KEY_NAME_PLACEHOLDER"
+  key_name             = "clarus"
   subnet_id            = "subnet-05c2a38a937f813a5"
   availability_zone    = "us-east-1a"
 
@@ -78,7 +78,7 @@ resource "aws_instance" "worker-1" {
   ami                  = "ami-005fc0f236362e99f"
   instance_type        = "t3a.medium"
   vpc_security_group_ids = [aws_security_group.k8s-sec-gr.id]
-  key_name             = "KEY_NAME_PLACEHOLDER"
+  key_name             = "clarus"
   subnet_id            = "subnet-05c2a38a937f813a5"
   availability_zone    = "us-east-1a"
 
@@ -95,7 +95,7 @@ resource "aws_instance" "worker-2" {
   ami                  = "ami-005fc0f236362e99f"
   instance_type        = "t3a.medium"
   vpc_security_group_ids = [aws_security_group.k8s-sec-gr.id]
-  key_name             = "KEY_NAME_PLACEHOLDER"
+  key_name             = "clarus"
   subnet_id            = "subnet-05c2a38a937f813a5"
   availability_zone    = "us-east-1a"
 
